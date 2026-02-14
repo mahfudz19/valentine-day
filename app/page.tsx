@@ -11,6 +11,7 @@ import SpotifyPlayer from "./model/spotify-player";
 import ScratchCard from "./model/scratch-card";
 import SlotMachine from "./model/slot-machine";
 import HeartbeatMonitor from "./model/heartbeat-monitor";
+import MessageDecoder from "./model/message-decoder";
 
 function ValentineContent() {
   const searchParams = useSearchParams();
@@ -31,6 +32,7 @@ function ValentineContent() {
     <ScratchCard key="scratch" doiName={doiName} />,
     <SlotMachine key="slot" doiName={doiName} />,
     <HeartbeatMonitor key="heartbeat" doiName={doiName} />,
+    <MessageDecoder key="decoder" doiName={doiName} />,
   ];
 
   useEffect(() => {
