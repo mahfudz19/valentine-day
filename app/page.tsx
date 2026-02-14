@@ -19,18 +19,10 @@ export default function Home() {
   useEffect(() => {
     const frameId = requestAnimationFrame(() => {
       const lastIndexStr = sessionStorage.getItem("lastValentineModelIndex");
-      const lastIndex =
-        lastIndexStr !== null ? parseInt(lastIndexStr, 10) : null;
+      const lastIndex = lastIndexStr !== null ? parseInt(lastIndexStr, 10) : -1;
 
-      let nextIndex: number;
-
-      if (lastIndex === null || models.length <= 1) {
-        nextIndex = Math.floor(Math.random() * models.length);
-      } else {
-        do {
-          nextIndex = Math.floor(Math.random() * models.length);
-        } while (nextIndex === lastIndex);
-      }
+      // Logika Sequence: Ambil index berikutnya, jika sudah di akhir kembali ke 0
+      const nextIndex = (lastIndex + 1) % models.length;
 
       sessionStorage.setItem("lastValentineModelIndex", nextIndex.toString());
       setModelIndex(nextIndex);
