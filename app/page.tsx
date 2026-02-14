@@ -27,13 +27,34 @@ function ValentineContent() {
 
   useEffect(() => {
     const frameId = requestAnimationFrame(() => {
-      const lastIndexStr = sessionStorage.getItem("lastValentineModelIndex");
-      const lastIndex = lastIndexStr !== null ? parseInt(lastIndexStr, 10) : -1;
+      const storageKey = "valentine_model_pool";
+      let pool: number[] = [];
+      
+      try {
+        const savedPool = sessionStorage.getItem(storageKey);
+        if (savedPool) {
+          pool = JSON.parse(savedPool);
+        }
+      } catch (e) {
+        console.error("Failed to parse pool", e);
+      }
 
-      // Logika Sequence: Ambil index berikutnya, jika sudah di akhir kembali ke 0
-      const nextIndex = (lastIndex + 1) % models.length;
+      // Jika pool kosong atau panjangnya tidak sesuai dengan jumlah model saat ini, buat pool baru
+      if (pool.length === 0 || Math.max(...pool) >= models.length) {
+        // Buat array index [0, 1, 2, 3, 4]
+        pool = Array.from({ length: models.length }, (_, i) => i);
+        // Shuffle array tersebut
+        for (let i = pool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [pool[i], pool[j]] = [pool[j], pool[i]];
+        }
+      }
 
-      sessionStorage.setItem("lastValentineModelIndex", nextIndex.toString());
+      // Ambil index pertama dari pool (ini yang akan ditampilkan)
+      const nextIndex = pool.shift()!;
+
+      // Simpan sisa pool kembali ke session storage
+      sessionStorage.setItem(storageKey, JSON.stringify(pool));
       setModelIndex(nextIndex);
     });
     return () => cancelAnimationFrame(frameId);
