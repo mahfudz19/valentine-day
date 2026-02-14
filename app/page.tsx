@@ -72,6 +72,11 @@ function ValentineContent() {
 }
 
 export default function Home() {
+  // const searchParams = useSearchParams();
+  // const doiName =
+  //   searchParams.get("doi") || process.env.NEXT_PUBLIC_DOI_NAME || "";
+
+  // return <SpotifyPlayer doiName={doiName} />;
   return (
     <Suspense
       fallback={

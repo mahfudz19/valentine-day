@@ -160,13 +160,13 @@ export default function ScratchCard({ doiName }: { doiName: string }) {
       <div className="text-center mb-10 relative z-10 animate-float">
         <div className="inline-block bg-rose-100 px-4 py-1 rounded-full mb-4">
           <span className="text-rose-600 text-[10px] font-black uppercase tracking-[0.3em]">
-            Exclusive Gift
+            Hadiah Spesial
           </span>
         </div>
         <h1 className="text-4xl font-black text-rose-600 uppercase tracking-tighter italic">
-          Secret{" "}
+          Memori{" "}
           <span className="text-transparent bg-clip-text bg-linear-to-r from-rose-600 to-orange-400">
-            Memory
+            Rahasia
           </span>
         </h1>
         <p className="text-rose-400/80 text-xs font-bold mt-2 tracking-widest uppercase">
@@ -193,10 +193,10 @@ export default function ScratchCard({ doiName }: { doiName: string }) {
 
           <div className="pb-4">
             <h2 className="text-lg font-black text-rose-600 leading-tight">
-              Our Precious Moment ❤️
+              Momen Berharga Kita ❤️
             </h2>
             <p className="text-rose-400/80 text-[10px] font-bold uppercase tracking-widest mt-1">
-              {doiName} & You • Forever
+              Untuk {doiName} • Dari Saya
             </p>
           </div>
         </div>
@@ -227,14 +227,14 @@ export default function ScratchCard({ doiName }: { doiName: string }) {
       {isScratchedEnough && !isAccepted && (
         <div className="mt-10 text-center animate-fade-in relative">
           <p className="text-rose-600 font-black text-lg uppercase tracking-tighter mb-4">
-            Will you be my Valentine? 🌹
+            Mau jadi Valentine aku? 🌹
           </p>
           <div className="flex gap-4 justify-center items-center h-20">
             <button
               onClick={handleYes}
               className="bg-rose-500 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:scale-125 transition-transform z-10"
             >
-              YES! ❤️
+              MAU! ❤️
             </button>
             <button
               onMouseEnter={moveNoButton}
@@ -244,7 +244,7 @@ export default function ScratchCard({ doiName }: { doiName: string }) {
               }}
               className="bg-white text-rose-500 px-8 py-3 rounded-full font-bold shadow-lg border border-rose-100 transition-all duration-200"
             >
-              NO
+              GAK
             </button>
           </div>
         </div>
@@ -255,10 +255,13 @@ export default function ScratchCard({ doiName }: { doiName: string }) {
           <div className="text-center p-8">
             <div className="text-8xl mb-6 animate-bounce">💍</div>
             <h1 className="text-4xl font-black text-white mb-4 uppercase italic tracking-tighter">
-              I KNEW IT! ❤️
+              SUDAH KUTEBAK! ❤️
             </h1>
             <p className="text-rose-100 text-xl font-medium">
-              See you on Valentine&apos;s Day, {doiName}! ✨
+              Sampai jumpa di hari Valentine, {doiName}! ✨
+            </p>
+            <p className="text-rose-200 text-sm mt-2 font-bold uppercase tracking-widest">
+              - Dari Pengagum Rahasiamu -
             </p>
             <div className="mt-8 flex justify-center gap-2">
               {Array.from({ length: 10 }).map((_, i) => (
