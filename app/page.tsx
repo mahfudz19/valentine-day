@@ -9,6 +9,7 @@ import IgPoll from "./model/ig-poll";
 import TinderMatch from "./model/tinder-match";
 import SpotifyPlayer from "./model/spotify-player";
 import ScratchCard from "./model/scratch-card";
+import SlotMachine from "./model/slot-machine";
 
 function ValentineContent() {
   const searchParams = useSearchParams();
@@ -27,6 +28,7 @@ function ValentineContent() {
     <TinderMatch key="tinder" doiName={doiName} />,
     <SpotifyPlayer key="spotify" doiName={doiName} />,
     <ScratchCard key="scratch" doiName={doiName} />,
+    <SlotMachine key="slot" doiName={doiName} />,
   ];
 
   useEffect(() => {
@@ -76,7 +78,7 @@ export default function Home() {
   // const doiName =
   //   searchParams.get("doi") || process.env.NEXT_PUBLIC_DOI_NAME || "";
 
-  // return <SpotifyPlayer doiName={doiName} />;
+  // return <SlotMachine doiName={doiName} />;
   return (
     <Suspense
       fallback={
