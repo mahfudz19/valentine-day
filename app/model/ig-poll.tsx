@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function IgPoll() {
+  const doiName = process.env.NEXT_PUBLIC_DOI_NAME || "";
   const [voted, setVoted] = useState<"yes" | "no" | null>(null);
   const [shake, setShake] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -52,14 +53,16 @@ export default function IgPoll() {
             <Image
               src="/Gemini_Generated_Image_xhfmdixhfmdixhfm.png"
               alt="Profile"
-              priority
               fill
+              priority
               className="object-cover"
             />
           </div>
           <div className="flex flex-col">
             <span className="text-sm font-bold drop-shadow-md">
-              your_crush_name
+              {doiName
+                ? doiName.toLowerCase().replace(/\s+/g, "_")
+                : "your_crush"}
             </span>
             <span className="text-xs text-gray-200 drop-shadow-md">2h ago</span>
           </div>
@@ -80,7 +83,7 @@ export default function IgPoll() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 z-30">
           <div className="bg-white text-black rounded-xl p-6 shadow-xl text-center transform -rotate-2">
             <h2 className="text-xl font-bold mb-6 font-serif">
-              Valentine nanti jalan yuk? 🥺👉👈
+              {doiName ? `${doiName}, v` : "V"}alentine nanti jalan yuk? 🥺👉👈
             </h2>
 
             <div className="flex flex-col gap-3">

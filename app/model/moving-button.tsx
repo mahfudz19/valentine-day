@@ -102,6 +102,7 @@ const Button = () => {
 };
 
 export default function MovingButton() {
+  const doiName = process.env.NEXT_PUBLIC_DOI_NAME || "";
   const [yesPressed, setYesPressed] = useState(false);
 
   return (
@@ -150,7 +151,7 @@ export default function MovingButton() {
             {/* Text Section: Elegant Typography */}
             <div className="space-y-4 mb-10">
               <h1 className="text-3xl md:text-4xl font-serif font-bold text-rose-800 leading-tight">
-                Hai, ada waktu bentar?
+                Hai{doiName ? ` ${doiName}` : ""}, ada waktu bentar?
               </h1>
               <p className="text-rose-600/70 text-base font-medium leading-relaxed px-2">
                 Kayaknya bakal seru kalau kita jalan pas Valentine nanti.

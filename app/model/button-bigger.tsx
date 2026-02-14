@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function ButtonBigger() {
+  const doiName = process.env.NEXT_PUBLIC_DOI_NAME || "";
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -106,7 +107,7 @@ export default function ButtonBigger() {
             />
           </div>
           <h2 className="text-4xl font-extrabold my-6 bg-linear-to-r from-rose-600 to-pink-500 bg-clip-text text-transparent drop-shadow-sm">
-            Yeeayyy!!! Makasih ya! 😊 ❤️
+            Yeeayyy!!! Makasih ya{doiName ? ` ${doiName}` : ""}! 😊 ❤️
           </h2>
           <p className="text-rose-700/80 font-medium italic">
             Kabari ya buat Valentine nanti! ✨
@@ -196,7 +197,7 @@ export default function ButtonBigger() {
             className="rounded-2xl shadow-lg mb-8 mx-auto"
           />
           <h1 className="text-3xl font-bold mb-8 text-rose-700 leading-tight">
-            Mau jadi Valentine-ku? 🌹
+            {doiName ? `${doiName}, mau` : "Mau"} jadi Valentine-ku? 🌹
           </h1>
           <div className="flex flex-col items-center gap-4">
             <button
