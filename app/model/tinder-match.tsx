@@ -3,8 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
-export default function TinderMatch() {
-  const doiName = process.env.NEXT_PUBLIC_DOI_NAME || "";
+export default function TinderMatch({ doiName }: { doiName: string }) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [matched, setMatched] = useState(false);

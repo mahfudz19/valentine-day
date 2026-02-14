@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export default function IgPoll() {
-  const doiName = process.env.NEXT_PUBLIC_DOI_NAME || "";
+export default function IgPoll({ doiName }: { doiName: string }) {
   const [voted, setVoted] = useState<"yes" | "no" | null>(null);
   const [shake, setShake] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);

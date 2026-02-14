@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-export default function LoveLetter() {
-  const doiName = process.env.NEXT_PUBLIC_DOI_NAME || "";
+export default function LoveLetter({ doiName }: { doiName: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [yesPressed, setYesPressed] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -93,7 +92,9 @@ export default function LoveLetter() {
                 For {doiName || "You"}...
               </h3>
               <p className="text-rose-600/80 text-sm italic leading-relaxed">
-                &quot;Boleh nggak kalau Valentine nanti kita buat kenangan bareng{doiName ? ` sama ${doiName}` : ""}? I promise it will be fun!&quot;
+                &quot;Boleh nggak kalau Valentine nanti kita buat kenangan
+                bareng{doiName ? ` sama ${doiName}` : ""}? I promise it will be
+                fun!&quot;
               </p>
 
               <div className="flex flex-col gap-2 pt-2">

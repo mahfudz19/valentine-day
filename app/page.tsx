@@ -1,23 +1,28 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import ButtonBigger from "./model/button-bigger";
 import MovingButton from "./model/moving-button";
 import LoveLetter from "./model/love-letter";
 import IgPoll from "./model/ig-poll";
 import TinderMatch from "./model/tinder-match";
 
-export default function Home() {
-  // return <TinderMatch />;
+function ValentineContent() {
+  const searchParams = useSearchParams();
   const [modelIndex, setModelIndex] = useState<number | null>(null);
+
+  // Ambil nama dari query parameter ?doi=, jika tidak ada pakai env
+  const doiName =
+    searchParams.get("doi") || process.env.NEXT_PUBLIC_DOI_NAME || "";
 
   // Daftar model yang tersedia (tambah model baru di sini)
   const models = [
-    <ButtonBigger key="bigger" />,
-    <MovingButton key="moving" />,
-    <LoveLetter key="letter" />,
-    <IgPoll key="igpoll" />,
-    <TinderMatch key="tinder" />,
+    <ButtonBigger key="bigger" doiName={doiName} />,
+    <MovingButton key="moving" doiName={doiName} />,
+    <LoveLetter key="letter" doiName={doiName} />,
+    <IgPoll key="igpoll" doiName={doiName} />,
+    <TinderMatch key="tinder" doiName={doiName} />,
   ];
 
   useEffect(() => {
@@ -39,4 +44,12 @@ export default function Home() {
   }
 
   return <main>{models[modelIndex]}</main>;
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-pink-50" />}>
+      <ValentineContent />
+    </Suspense>
+  );
 }

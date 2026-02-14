@@ -101,8 +101,7 @@ const Button = () => {
   );
 };
 
-export default function MovingButton() {
-  const doiName = process.env.NEXT_PUBLIC_DOI_NAME || "";
+export default function MovingButton({ doiName }: { doiName: string }) {
   const [yesPressed, setYesPressed] = useState(false);
 
   return (

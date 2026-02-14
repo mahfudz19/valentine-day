@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-export default function ButtonBigger() {
-  const doiName = process.env.NEXT_PUBLIC_DOI_NAME || "";
+export default function ButtonBigger({ doiName }: { doiName: string }) {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
   const [mounted, setMounted] = useState(false);
