@@ -8,6 +8,7 @@ import LoveLetter from "./model/love-letter";
 import IgPoll from "./model/ig-poll";
 import TinderMatch from "./model/tinder-match";
 import SpotifyPlayer from "./model/spotify-player";
+import ScratchCard from "./model/scratch-card";
 
 function ValentineContent({ doiName }: { doiName: string }) {
   const [modelIndex, setModelIndex] = useState<number | null>(null);
@@ -22,6 +23,7 @@ function ValentineContent({ doiName }: { doiName: string }) {
     <IgPoll key="igpoll" doiName={doiName} />,
     <TinderMatch key="tinder" doiName={doiName} />,
     <SpotifyPlayer key="spotify" doiName={doiName} />,
+    <ScratchCard key="scratch" doiName={doiName} />,
   ];
 
   useEffect(() => {
@@ -71,7 +73,7 @@ export default function Home() {
   const doiName =
     searchParams.get("doi") || process.env.NEXT_PUBLIC_DOI_NAME || "";
 
-  // return <SpotifyPlayer doiName={doiName} />;
+  // return <ScratchCard doiName={doiName} />;
 
   return (
     <Suspense fallback={<div className="min-h-screen bg-pink-50" />}>
