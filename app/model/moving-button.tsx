@@ -119,6 +119,7 @@ export default function MovingButton() {
               <Image
                 src="/Gemini_Generated_Image_p6q9dhp6q9dhp6q9.png"
                 alt="Kucing Merayakan"
+                priority
                 fill
                 className="relative object-cover rounded-full border-4 border-white shadow-xl"
               />

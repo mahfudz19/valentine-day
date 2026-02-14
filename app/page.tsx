@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import ButtonBigger from "./model/button-bigger";
 import MovingButton from "./model/moving-button";
 import LoveLetter from "./model/love-letter";
+import IgPoll from "./model/ig-poll";
 
 export default function Home() {
   // return <LoveLetter />;
@@ -14,6 +15,7 @@ export default function Home() {
     <ButtonBigger key="bigger" />,
     <MovingButton key="moving" />,
     <LoveLetter key="letter" />,
+    <IgPoll key="igpoll" />,
   ];
 
   useEffect(() => {

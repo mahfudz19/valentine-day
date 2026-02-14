@@ -101,6 +101,7 @@ export default function ButtonBigger() {
               alt="Kucing merayakan"
               width={400}
               height={400}
+              priority
               className="relative rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-300"
             />
           </div>
@@ -168,6 +169,7 @@ export default function ButtonBigger() {
               src="/Gemini_Generated_Image_xhfmdixhfmdixhfm.png"
               alt="Kucing memohon"
               width={280}
+              priority
               height={280}
               className="relative rounded-3xl shadow-2xl border-4 border-white/50"
             />
@@ -189,6 +191,7 @@ export default function ButtonBigger() {
             src="/Gemini_Generated_Image_xhfmdixhfmdixhfm.png"
             alt="Kucing memohon"
             width={400}
+            priority
             height={400}
             className="rounded-2xl shadow-lg mb-8 mx-auto"
           />

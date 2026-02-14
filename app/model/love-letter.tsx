@@ -25,6 +25,7 @@ export default function LoveLetter() {
             src="/Gemini_Generated_Image_p6q9dhp6q9dhp6q9.png"
             alt="Success"
             width={300}
+            priority
             height={300}
             className="rounded-2xl mb-6 mx-auto"
           />
@@ -82,6 +83,7 @@ export default function LoveLetter() {
                 <Image
                   src="/Gemini_Generated_Image_xhfmdixhfmdixhfm.png"
                   alt="Cute Cat"
+                  priority
                   fill
                   className="object-cover rounded-full border-2 border-rose-100"
                 />
