@@ -10,7 +10,10 @@ import TinderMatch from "./model/tinder-match";
 import SpotifyPlayer from "./model/spotify-player";
 import ScratchCard from "./model/scratch-card";
 
-function ValentineContent({ doiName }: { doiName: string }) {
+function ValentineContent() {
+  const searchParams = useSearchParams();
+  const doiName =
+    searchParams.get("doi") || process.env.NEXT_PUBLIC_DOI_NAME || "";
   const [modelIndex, setModelIndex] = useState<number | null>(null);
 
   // Ambil nama dari query parameter ?doi=, jika tidak ada pakai env
@@ -69,15 +72,17 @@ function ValentineContent({ doiName }: { doiName: string }) {
 }
 
 export default function Home() {
-  const searchParams = useSearchParams();
-  const doiName =
-    searchParams.get("doi") || process.env.NEXT_PUBLIC_DOI_NAME || "";
-
-  // return <ScratchCard doiName={doiName} />;
-
   return (
-    <Suspense fallback={<div className="min-h-screen bg-pink-50" />}>
-      <ValentineContent doiName={doiName} />
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-pink-50 flex items-center justify-center">
+          <div className="animate-pulse text-rose-400 font-medium">
+            Memuat kejutan...
+          </div>
+        </div>
+      }
+    >
+      <ValentineContent />
     </Suspense>
   );
 }
