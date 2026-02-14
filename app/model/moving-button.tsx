@@ -77,7 +77,6 @@ const Button = () => {
 
   return (
     <button
-      onMouseEnter={moveButton}
       onClick={moveButton}
       style={
         position
